@@ -12,7 +12,7 @@ AnswerHive (also referred to as QueryConnect) is a professional Q&A platform des
 - **User Roles:**
   - **Guest:** View all questions and answers.
   - **User:** Register, log in, post questions/answers, vote.
-//  - **Admin:** Moderate content and manage the platform.
+
 
 - **Core Functionality:**
   - Ask and answer questions with a **rich text editor** (bold, italics, lists, hyperlinks, images, emojis).
@@ -34,39 +34,3 @@ AnswerHive (also referred to as QueryConnect) is a professional Q&A platform des
 - **Others:** Nodemon for development, dotenv for environment variables  
 
 ---
-
-## Getting Started
-
-### 1. Clone the Repository
-```bash
-git clone https://github.com/YourUsername/AnswerHive.git
-cd AnswerHive
-```
----
-### 2. Install Dependencies
-```
-npm install
-```
----
-
-### 3. Setup Environment Variables
-
-Create a .env file in the project root.
-
-Add the following variables:
-
-```
-PORT=5000
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_super_secret_key
-```
-Notes:
-
-PORT – The port your server will run on (default 5000).
-
-MONGO_URI – Your MongoDB connection string (local or Atlas).
-
-JWT_SECRET – A long, random string for signing JWT tokens.
-
----
-
