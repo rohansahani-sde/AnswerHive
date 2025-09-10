@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import api from "../api";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import { toast } from "react-toastify";
 
 const CreateQuestion = () => {
   const navigate = useNavigate();
@@ -38,6 +39,7 @@ const CreateQuestion = () => {
         { title, description, tags },
         { headers: { Authorization: `Bearer ${token}` } }
       );
+      toast.success("Question post successfully!");
       navigate("/questions"); // Redirect after success
     } catch (err) {
       console.log("Error posting question:", err);

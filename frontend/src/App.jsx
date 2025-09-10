@@ -10,11 +10,28 @@ import QuestionsList from "./pages/QuestionsList";
 import QuestionDetails from "./pages/QuestionDetails";
 import Navbar from "./components/Navbar";
 import AppRoutes from "./routes/AppRoutes";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 export default function App() {
+
   return (
-    // <AuthProvider>
+    <>
+    <ToastContainer
+        position="top-right"   // top-left, bottom-right, bottom-left
+        autoClose={3000}       // 3 sec baad band ho jayega
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        pauseOnHover
+        draggable
+        theme="colored"        // light, dark, colored
+      />
       <AppRoutes /> 
+    </>
+
+    // <AuthProvider>
     // </AuthProvider>
     // <BrowserRouter>
     // <Navbar />

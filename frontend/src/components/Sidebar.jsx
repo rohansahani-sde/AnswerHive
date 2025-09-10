@@ -1,14 +1,18 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Sidebar = ({ isOpen, toggleSidebar }) => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
     if (window.confirm("Are you sure you want to logout?")) {
-      localStorage.removeItem("token");
-      navigate("/login");
-    }
+          localStorage.removeItem("token");
+          toast.success("Logout successfully!");
+          navigate("/login");
+        }else{
+          toast.info("Logout cancelled!");
+        }
   };
 
   return (

@@ -2,6 +2,8 @@ import { useState } from "react";
 import api from "../api";
 import { useNavigate } from "react-router-dom";
 
+import {  toast } from "react-toastify";
+
 export default function Register() {
   const [form, setForm] = useState({ username: "", email: "", password: "" });
   const [message, setMessage] = useState("");
@@ -14,7 +16,6 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      console.log("Submitting form:", form);
 
       const res = await api.post("/auth/register", form);
 
@@ -23,7 +24,8 @@ export default function Register() {
       localStorage.setItem("userId", res.data.user._id);
 
       setMessage("✅ User registered successfully!");
-      console.log("Registered:", res.data);
+      toast.success("User registered successfully!");
+      // console.log("Registered:", res.data);
 
       navigate("/questions");
     } catch (err) {

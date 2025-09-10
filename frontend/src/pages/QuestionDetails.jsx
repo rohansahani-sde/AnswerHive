@@ -5,6 +5,7 @@ import api from "../api";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import parse from "html-react-parser";
+import { toast } from "react-toastify";
 
 const QuestionDetails = () => {
   const { id } = useParams();
@@ -49,6 +50,7 @@ const QuestionDetails = () => {
       );
       setNewAnswer("");
       fetchAnswers();
+      toast.success("Answer post successfully!");
     } catch (err) {
       console.log(err);
     }

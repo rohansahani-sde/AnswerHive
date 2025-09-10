@@ -1,6 +1,8 @@
 import { useState } from "react";
 import api from "../api";
 import { useNavigate } from "react-router-dom";
+import {  toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Login() {
   const [form, setForm] = useState({ emailOrUsername: "", password: "" });
@@ -9,6 +11,7 @@ export default function Login() {
   const navigate = useNavigate();
 
   const handleChange = (e) => {
+    // toast.success("🦄 Success Message!");
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
@@ -21,7 +24,9 @@ export default function Login() {
       localStorage.setItem("userId", res.data.user._id); // store userId
       console.log("Logged in:", res.data);
       navigate("/questions");
+      toast.success("Login successful!");
     } catch (err) {
+      toast.warn("Invalid credentials!");
       setMessage(err.response?.data?.message || "❌ Invalid credentials");
     }
   };

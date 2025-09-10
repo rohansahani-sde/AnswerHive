@@ -22,7 +22,7 @@ const AppRoutes = () => {
       <Routes>
         {/* Public routes */}
         <Route path="/login" element={ <PublicRoute > <Login /> </PublicRoute>} />
-        <Route path="/signup" element={<Register />} />
+        <Route path="/signup" element={ <PublicRoute > <Register /> </PublicRoute> } />
 
         {/* Protected layout with Sidebar */}
         <Route element={<Protected><MainLayout /></Protected>}>

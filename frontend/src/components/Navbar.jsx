@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
   const token = localStorage.getItem("token");
@@ -9,9 +10,14 @@ const Navbar = () => {
   const handleLogout = () => {
     if (window.confirm("Are you sure you want to logout?")) {
       localStorage.removeItem("token");
+      toast.success("Logout successfully!");
       navigate("/login");
+    }else{
+      toast.info("Logout cancelled!");
     }
   };
+  // if (window.confirm("Are you sure you want to logout?")) {
+  // }
 
   const handleSearch = (e) => {
     if (e.key === "Enter") {
